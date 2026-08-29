@@ -1,0 +1,20 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","className":"hw-main hw-coordinate","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull hw-main hw-coordinate">
+	<!--
+		Formation Coordinate template. Presentation only: the hw_coordinate CPT, its meta,
+		and any Matrix rendering are owned by the HeroWithin Formation Matrix Core plugin.
+		This template just frames the coordinate's own content and points to a next step.
+	-->
+	<!-- wp:pattern {"slug":"herowithin/formation-hero"} /-->
+
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:post-content {"layout":{"type":"constrained"}} /--></div>
+	<!-- /wp:group -->
+
+	<!-- wp:pattern {"slug":"herowithin/next-faithful-step"} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

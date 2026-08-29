@@ -1,0 +1,125 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "760px",
+      "wideSize": "1320px"
+    },
+    "spacing": {
+      "blockGap": true,
+      "units": ["px", "rem", "vw", "%"],
+      "spacingSizes": [
+        {"slug": "1", "name": "HW 1", "size": "0.5rem"},
+        {"slug": "2", "name": "HW 2", "size": "0.75rem"},
+        {"slug": "3", "name": "HW 3", "size": "1rem"},
+        {"slug": "4", "name": "HW 4", "size": "1.5rem"},
+        {"slug": "5", "name": "HW 5", "size": "2rem"},
+        {"slug": "6", "name": "HW 6", "size": "3rem"},
+        {"slug": "7", "name": "HW 7", "size": "4.5rem"},
+        {"slug": "8", "name": "HW 8", "size": "6rem"}
+      ]
+    },
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "palette": [
+        {"slug": "ink", "name": "HW Ink — Provisional", "color": "#171713"},
+        {"slug": "paper", "name": "HW Paper — Provisional", "color": "#F4F0E7"},
+        {"slug": "stone", "name": "HW Stone — Provisional", "color": "#D8D1C4"},
+        {"slug": "forest", "name": "HW Forest — Provisional", "color": "#34483A"},
+        {"slug": "ember", "name": "HW Ember — Provisional", "color": "#965632"},
+        {"slug": "brass", "name": "HW Brass — Provisional", "color": "#A88952"},
+        {"slug": "slate", "name": "HW Slate — Provisional", "color": "#50616A"},
+        {"slug": "white", "name": "White", "color": "#FFFFFF"}
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "slug": "editorial",
+          "name": "HeroWithin Editorial — Provisional",
+          "fontFamily": "\"Libre Caslon Text\", Georgia, serif"
+        },
+        {
+          "slug": "interface",
+          "name": "HeroWithin Interface — Provisional",
+          "fontFamily": "\"Work Sans\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+        }
+      ],
+      "fontSizes": [
+        {"slug": "xs", "name": "XS", "size": "0.8125rem"},
+        {"slug": "sm", "name": "Small", "size": "0.9375rem"},
+        {"slug": "md", "name": "Body", "size": "1.0625rem"},
+        {"slug": "lg", "name": "Large", "size": "1.25rem"},
+        {"slug": "xl", "name": "XL", "size": "clamp(1.5rem, 2vw, 2rem)"},
+        {"slug": "2xl", "name": "2XL", "size": "clamp(2rem, 4vw, 3.25rem)"},
+        {"slug": "hero", "name": "Hero", "size": "clamp(2.75rem, 7vw, 6.25rem)"}
+      ]
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "shadow": {
+      "defaultPresets": false,
+      "presets": [
+        {"slug": "soft", "name": "HW Soft", "shadow": "0 8px 30px rgba(0,0,0,0.10)"}
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--paper)",
+      "text": "var(--wp--preset--color--ink)"
+    },
+    "spacing": {
+      "blockGap": "var(--wp--preset--spacing--4)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--interface)",
+      "fontSize": "var(--wp--preset--font-size--md)",
+      "lineHeight": "1.65"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--editorial)",
+          "fontWeight": "400",
+          "lineHeight": "1.12"
+        }
+      },
+      "link": {
+        "color": {"text": "var(--wp--preset--color--forest)"},
+        ":hover": {"color": {"text": "var(--wp--preset--color--ember)"}}
+      },
+      "button": {
+        "color": {
+          "background": "var(--wp--preset--color--forest)",
+          "text": "var(--wp--preset--color--white)"
+        },
+        "border": {"radius": "6px"},
+        "spacing": {"padding": {"top": "0.8rem", "right": "1.2rem", "bottom": "0.8rem", "left": "1.2rem"}},
+        "typography": {"fontFamily": "var(--wp--preset--font-family--interface)", "fontWeight": "600"}
+      }
+    },
+    "blocks": {
+      "core/navigation": {"typography": {"fontFamily": "var(--wp--preset--font-family--interface)", "fontWeight": "600"}},
+      "core/quote": {"typography": {"fontFamily": "var(--wp--preset--font-family--editorial)", "fontSize": "var(--wp--preset--font-size--xl)"}},
+      "core/post-content": {"spacing": {"blockGap": "var(--wp--preset--spacing--4)"}}
+    }
+  },
+  "customTemplates": [
+    {"name": "hw-landing", "title": "HeroWithin — Landing / Doorway", "postTypes": ["page"]},
+    {"name": "hw-formation-hub", "title": "HeroWithin — Formation Hub", "postTypes": ["page", "hw_coordinate"]},
+    {"name": "hw-editorial", "title": "HeroWithin — Editorial Teaching", "postTypes": ["page", "post"]},
+    {"name": "hw-narrative", "title": "HeroWithin — Narrative", "postTypes": ["page", "post"]},
+    {"name": "hw-practice", "title": "HeroWithin — Practice", "postTypes": ["page", "post"]},
+    {"name": "hw-journey", "title": "HeroWithin — Journey", "postTypes": ["page", "post"]},
+    {"name": "hw-campfire", "title": "HeroWithin — Campfire / Brotherhood", "postTypes": ["page", "post"]}
+  ]
+}

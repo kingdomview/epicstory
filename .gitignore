@@ -1,0 +1,24 @@
+# Never commit secrets — Pressable, OpenAI/AI Engine bearer tokens, WordPress creds
+*.env
+.env*
+wp-config.php
+*.pem
+*.key
+secrets/
+credentials*.json
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Build / dependency artifacts
+node_modules/
+vendor/
+*.log
+
+# Theme/plugin zips are generated on demand, not tracked
+/dist/
+*.zip

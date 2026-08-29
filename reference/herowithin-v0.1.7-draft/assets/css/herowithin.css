@@ -1,0 +1,1060 @@
+/* HeroWithin draft theme helpers. Keep brand values in theme.json. */
+
+:root {
+  --hw-reading-width: 760px;
+  --hw-standard-width: 1160px;
+  --hw-wide-width: 1320px;
+  --hw-mobile-gutter: 24px;
+}
+
+.hw-reading { max-width: var(--hw-reading-width); margin-inline: auto; }
+.hw-standard { max-width: var(--hw-standard-width); margin-inline: auto; }
+.hw-wide { max-width: var(--hw-wide-width); margin-inline: auto; }
+.hw-full { width: 100%; }
+
+.hw-visual-story-surface {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(22rem, 65vh, 52rem);
+}
+
+.hw-visual-story-surface img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hw-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.12) 55%, rgba(0,0,0,.05));
+}
+
+.hw-hero-copy {
+  width: min(100%, var(--hw-standard-width));
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 5rem) max(var(--hw-mobile-gutter), calc((100vw - var(--hw-standard-width)) / 2));
+  color: #fff;
+}
+
+.hw-section {
+  padding-block: clamp(3rem, 7vw, 7rem);
+}
+
+.hw-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: var(--wp--preset--spacing--4);
+}
+
+.hw-card {
+  border: 1px solid var(--wp--preset--color--stone);
+  border-radius: 10px;
+  padding: var(--wp--preset--spacing--5);
+  background: var(--wp--preset--color--white);
+}
+
+.hw-touch-target a,
+.hw-touch-target button,
+.wp-element-button {
+  min-height: 44px;
+}
+
+@media (max-width: 782px) {
+  .hw-visual-story-surface { min-height: 68svh; }
+  .hw-section { padding-block: 3rem; }
+}
+
+/* v0.1.1: serialization-safe placeholder surface used until approved imagery is wired in. */
+.hw-hero-placeholder {
+  display: flex;
+  align-items: end;
+}
+
+/* v0.1.2 — structural navigation and discovery compatibility. */
+.hw-site-header {
+  position: relative;
+  z-index: 20;
+  background: var(--wp--preset--color--paper);
+}
+
+.hw-primary-nav .wp-block-navigation-item__content {
+  white-space: nowrap;
+}
+
+/* Preserve readable result-card width when WP Grid Builder returns only one/few Formation Coordinates. */
+.hwfm-explore-shell .wpgb-grid .wpgb-card,
+.hwfm-explore-shell .wpgb-grid .wpgb-card-wrapper,
+.hwfm-explore-shell .wpgb-grid article {
+  min-width: min(100%, 18rem);
+}
+
+.hwfm-explore-shell .wpgb-grid .wpgb-card {
+  max-width: 24rem;
+}
+
+/* Future approved imagery plugs into these surfaces centrally instead of page-by-page. */
+.hw-visual-story-surface.has-hero-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hw-matrix-invitation .hw-card-grid {
+  margin-top: var(--wp--preset--spacing--5);
+}
+
+@media (max-width: 782px) {
+  .hw-primary-nav { width: auto; }
+  .hwfm-explore-shell .wpgb-grid .wpgb-card,
+  .hwfm-explore-shell .wpgb-grid .wpgb-card-wrapper,
+  .hwfm-explore-shell .wpgb-grid article {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* v0.1.3 — first homepage visual implementation pass. */
+.hw-site-header--governed {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--wp--preset--color--ink) 12%, transparent);
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--wp--preset--color--paper) 94%, transparent);
+}
+
+.hw-wordmark {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hw-wordmark a {
+  color: var(--wp--preset--color--ink);
+  text-decoration: none;
+}
+
+.hw-eyebrow {
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.hw-home-hero {
+  min-height: clamp(34rem, 78vh, 56rem);
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(90deg, rgba(10,12,11,.06) 0%, rgba(10,12,11,.08) 48%, rgba(10,12,11,.30) 70%, rgba(10,12,11,.62) 100%),
+    url('../images/homepage-hero-clean.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+.hw-home-hero__content {
+  width: min(100%, var(--hw-wide-width));
+  padding: clamp(4rem, 8vw, 8rem) var(--hw-mobile-gutter);
+}
+
+.hw-home-hero__content > * {
+  max-width: 39rem;
+  margin-left: auto;
+}
+
+.hw-home-hero__content .wp-block-buttons {
+  justify-content: flex-start;
+}
+
+.hw-home-hero h1 {
+  text-wrap: balance;
+  font-size: clamp(3rem, 5.1vw, 5.75rem) !important;
+  line-height: .98;
+  text-shadow: 0 2px 24px rgba(0,0,0,.42);
+}
+
+.hw-home-orientation,
+.hw-home-becoming,
+.hw-home-doorways,
+.hw-matrix-invitation {
+  padding-inline: var(--hw-mobile-gutter);
+}
+
+.hw-path-card {
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hw-path-card--growth { border-top: 4px solid var(--wp--preset--color--forest); }
+.hw-path-card--struggle { border-top: 4px solid var(--wp--preset--color--ember); }
+
+.hw-seeker-door {
+  position: relative;
+  overflow: hidden;
+  min-height: 24rem;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--hw-mobile-gutter);
+  border-radius: 14px;
+  background:
+    linear-gradient(90deg, rgba(23,23,19,.94), rgba(23,23,19,.72)),
+    radial-gradient(circle at 85% 20%, rgba(168,137,82,.38), transparent 42%),
+    var(--wp--preset--color--ink);
+  color: var(--wp--preset--color--paper);
+}
+
+.hw-seeker-door__inner { width: min(100%, 48rem); margin-left: 0; }
+.hw-seeker-door a { color: inherit; }
+
+.hw-becoming-steps {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+  gap: var(--wp--preset--spacing--4);
+  align-items: stretch;
+  margin-block: var(--wp--preset--spacing--6);
+}
+
+.hw-becoming-step {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  min-height: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--wp--preset--color--stone);
+  border-radius: 10px;
+  background: var(--wp--preset--color--white);
+}
+
+.hw-becoming-arrow { align-self: center; margin: 0; }
+
+.hw-doorway-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--wp--preset--spacing--4);
+  margin-top: var(--wp--preset--spacing--5);
+}
+
+.hw-doorway-card {
+  min-height: 16rem;
+  padding: var(--wp--preset--spacing--5);
+  border-radius: 10px;
+  border: 1px solid var(--wp--preset--color--stone);
+  background: var(--wp--preset--color--white);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.hw-doorway-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.hw-doorway-card h3 a { text-decoration: none; color: var(--wp--preset--color--ink); }
+
+.hw-site-footer--governed a { color: var(--wp--preset--color--paper); }
+
+@media (max-width: 1000px) {
+  .hw-doorway-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hw-becoming-steps { grid-template-columns: 1fr; }
+  .hw-becoming-arrow { transform: rotate(90deg); justify-self: center; }
+}
+
+@media (max-width: 782px) {
+  .hw-site-header--governed { position: relative; }
+  .hw-home-hero {
+    min-height: 76svh;
+    align-items: end;
+    background-image:
+      linear-gradient(180deg, rgba(10,12,11,.04) 0%, rgba(10,12,11,.18) 46%, rgba(10,12,11,.72) 78%, rgba(10,12,11,.92) 100%),
+      url('../images/homepage-hero-clean.png');
+    background-position: 31% center;
+  }
+  .hw-home-hero__content { padding: 3rem var(--hw-mobile-gutter); }
+  .hw-home-hero__content > * { margin-left: 0; }
+  .hw-doorway-grid { grid-template-columns: 1fr; }
+  .hw-seeker-door { border-radius: 0; margin-inline: calc(-1 * var(--hw-mobile-gutter)); }
+}
+
+
+/* v0.1.4 — whole-homepage composition polish using the clean approved testing hero asset. */
+.hw-home-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: inherit;
+}
+.hw-home-hero__content > * {
+  width: min(100%, 39rem);
+}
+.hw-home-becoming > .wp-block-heading,
+.hw-home-becoming > p:not(.hw-eyebrow) {
+  max-width: 54rem;
+}
+.hw-becoming-step h3 {
+  font-size: clamp(1.65rem, 2.4vw, 2.35rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+@media (min-width: 1001px) {
+  .hw-home-hero__content { padding-left: max(var(--hw-mobile-gutter), calc((100vw - var(--hw-wide-width)) / 2)); padding-right: max(var(--hw-mobile-gutter), calc((100vw - var(--hw-wide-width)) / 2)); }
+  .hw-home-hero__content > * { margin-left: auto; margin-right: 0; }
+}
+@media (max-width: 782px) {
+  .hw-home-hero h1 { font-size: clamp(2.65rem, 12vw, 4.4rem) !important; }
+  .hw-home-hero__content { justify-content: end; min-height: inherit; }
+  .hw-home-hero__content > * { width: 100%; }
+  .hw-becoming-step { min-height: auto; }
+}
+
+/* v0.1.5 — merge selected v0.2.0 polish while preserving the fuller v0.1.4 homepage system. */
+:root {
+  --hw-ink: #241910;
+  --hw-muted: #66594b;
+  --hw-paper: #fbf7ef;
+  --hw-warm: #f3eadc;
+  --hw-card: #fffaf2;
+  --hw-line: rgba(55, 38, 23, 0.16);
+  --hw-gold: #b4833f;
+  --hw-deep: #17120d;
+  --hw-radius: 18px;
+  --hw-shadow: 0 18px 50px rgba(37, 25, 16, 0.10);
+}
+
+:where(a, button, input, select, textarea, .wp-block-button__link):focus-visible {
+  outline: 3px solid var(--hw-gold);
+  outline-offset: 4px;
+}
+
+.wp-site-blocks {
+  background: var(--wp--preset--color--paper, var(--hw-paper));
+}
+
+.wp-block-navigation a {
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open {
+  padding: 28px;
+  background: var(--wp--preset--color--paper, var(--hw-paper));
+}
+
+/* Make the governed homepage sections use the available width more consistently. */
+.hw-home-orientation.alignwide,
+.hw-home-becoming.alignwide,
+.hw-home-doorways.alignwide,
+.hw-matrix-invitation.alignwide {
+  width: min(calc(100vw - (2 * var(--hw-mobile-gutter))), var(--hw-wide-width));
+  max-width: var(--hw-wide-width) !important;
+  margin-inline: auto;
+}
+
+.hw-home-orientation > .wp-block-heading,
+.hw-home-becoming > .wp-block-heading,
+.hw-home-doorways > .wp-block-heading,
+.hw-matrix-invitation > .wp-block-heading {
+  text-wrap: balance;
+}
+
+/* Fix: orientation boxes should be wider, equal-height, and evenly spaced. */
+.hw-orientation-paths.wp-block-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: stretch;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.hw-orientation-paths.wp-block-columns > .wp-block-column {
+  margin: 0 !important;
+  min-width: 0;
+}
+
+.hw-path-card {
+  height: 100%;
+  min-height: clamp(18rem, 27vw, 23rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: var(--hw-radius);
+  box-shadow: 0 10px 34px rgba(37, 25, 16, 0.06);
+}
+
+.hw-path-card h3 {
+  font-size: clamp(2.2rem, 4.4vw, 4.15rem);
+  line-height: .98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hw-path-card p:first-child {
+  text-align: center;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Fix: Identity -> Formation -> Maturity cards should be equal-height and not feel narrow. */
+.hw-becoming-steps {
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) minmax(1.25rem, 2.5rem) minmax(0, 1fr) minmax(1.25rem, 2.5rem) minmax(0, 1fr);
+  gap: clamp(.85rem, 1.8vw, 1.75rem);
+  align-items: stretch;
+}
+
+.hw-becoming-step {
+  min-height: clamp(22rem, 38vw, 31rem);
+  height: 100%;
+  padding: clamp(2rem, 4vw, 3.25rem);
+  border-radius: var(--hw-radius);
+  box-shadow: 0 10px 34px rgba(37, 25, 16, 0.06);
+}
+
+.hw-becoming-step h3 {
+  font-size: clamp(2rem, 3.75vw, 3.55rem);
+  line-height: .98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hw-becoming-step p:first-child {
+  text-align: center;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hw-becoming-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+}
+
+/* Fix: doorway cards stay same-height and become wider before text feels cramped. */
+.hw-doorway-grid {
+  align-items: stretch;
+}
+
+.hw-doorway-card {
+  min-height: clamp(19rem, 27vw, 24rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 3vw, 3rem);
+  border-radius: var(--hw-radius);
+  box-shadow: 0 10px 34px rgba(37, 25, 16, 0.06);
+}
+
+.hw-doorway-card h3 {
+  font-size: clamp(2.15rem, 3.4vw, 3.3rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hw-doorway-card p {
+  max-width: 18rem;
+}
+
+.hw-site-footer--governed .wp-block-columns {
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.hw-site-footer--governed li + li {
+  margin-top: .55rem;
+}
+
+@media (max-width: 1180px) and (min-width: 783px) {
+  .hw-doorway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 783px) {
+  .hw-becoming-steps {
+    grid-template-columns: 1fr;
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+
+  .hw-becoming-arrow {
+    transform: rotate(90deg);
+    min-height: 2rem;
+  }
+
+  .hw-becoming-step {
+    min-height: 16rem;
+  }
+}
+
+@media (max-width: 782px) {
+  .hw-home-orientation.alignwide,
+  .hw-home-becoming.alignwide,
+  .hw-home-doorways.alignwide,
+  .hw-matrix-invitation.alignwide {
+    width: min(calc(100vw - (2 * var(--hw-mobile-gutter))), var(--hw-wide-width));
+  }
+
+  .hw-orientation-paths.wp-block-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-path-card,
+  .hw-becoming-step,
+  .hw-doorway-card {
+    min-height: auto;
+    padding: clamp(1.5rem, 7vw, 2.25rem);
+  }
+
+  .hw-path-card h3,
+  .hw-becoming-step h3,
+  .hw-doorway-card h3 {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+}
+
+
+/* v0.1.6 — homepage visual QA polish after live review.
+   Goals: move hero text away from men, improve white-text readability,
+   widen/equalize homepage cards, and prevent large display words from escaping boxes. */
+
+/* Hero: keep men visible on the left; place copy in a dedicated right-side reading zone. */
+.hw-home-hero {
+  min-height: clamp(36rem, 82vh, 58rem);
+  align-items: stretch;
+  background-image:
+    linear-gradient(90deg,
+      rgba(10,12,11,0.03) 0%,
+      rgba(10,12,11,0.10) 34%,
+      rgba(10,12,11,0.38) 56%,
+      rgba(10,12,11,0.78) 100%),
+    radial-gradient(circle at 78% 48%, rgba(0,0,0,0.54) 0%, rgba(0,0,0,0.28) 34%, transparent 60%),
+    url('../images/homepage-hero-clean.png');
+  background-position: center center;
+}
+
+.hw-home-hero__content {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: inherit;
+  display: grid;
+  grid-template-columns: minmax(0, 49vw) minmax(19rem, 42rem);
+  align-content: center;
+  justify-content: stretch;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 6rem) clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 6rem);
+}
+
+.hw-home-hero__content > * {
+  grid-column: 2;
+  width: min(100%, 42rem) !important;
+  max-width: 42rem !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.hw-home-hero .hw-eyebrow {
+  display: inline-block;
+  width: auto !important;
+  max-width: max-content !important;
+  padding: .35rem .58rem;
+  border-radius: 999px;
+  background: rgba(9, 11, 10, .42);
+  color: #fffaf2 !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.78);
+  letter-spacing: .12em;
+}
+
+.hw-home-hero h1,
+.hw-home-hero p,
+.hw-home-hero a {
+  color: #fffaf2 !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,.72), 0 1px 3px rgba(0,0,0,.72);
+}
+
+.hw-home-hero h1 {
+  font-size: clamp(3.4rem, 5.25vw, 6.1rem) !important;
+  line-height: .95;
+  max-width: 11ch !important;
+}
+
+/* Homepage section width: give cards enough room before they become cramped. */
+.hw-home-orientation.alignwide,
+.hw-home-becoming.alignwide,
+.hw-home-doorways.alignwide,
+.hw-matrix-invitation.alignwide {
+  width: min(calc(100vw - 4rem), 1280px) !important;
+  max-width: 1280px !important;
+}
+
+/* Orientation cards: same height, wider visual rhythm, smaller display type. */
+.hw-orientation-paths.wp-block-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.hw-path-card {
+  min-height: clamp(18rem, 25vw, 22rem);
+  padding: clamp(2rem, 3.4vw, 3.25rem);
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.hw-path-card h3 {
+  font-size: clamp(2.15rem, 3.35vw, 3.25rem) !important;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  max-width: 10.5ch;
+}
+
+.hw-path-card p:first-child,
+.hw-becoming-step p:first-child {
+  white-space: normal;
+}
+
+/* Becoming cards: make the cards wider and prevent the question text from overflowing. */
+.hw-becoming-steps {
+  width: min(100%, 1180px);
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1fr) 1.75rem minmax(0, 1fr) 1.75rem minmax(0, 1fr);
+  gap: clamp(.75rem, 1.4vw, 1.25rem);
+}
+
+.hw-becoming-step {
+  min-height: clamp(21rem, 34vw, 29rem);
+  padding: clamp(2rem, 3vw, 3rem);
+  overflow: hidden;
+}
+
+.hw-becoming-step h3 {
+  font-size: clamp(2rem, 2.65vw, 2.85rem) !important;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  max-width: 9.5ch;
+}
+
+.hw-becoming-arrow {
+  font-size: clamp(1.25rem, 2vw, 1.65rem) !important;
+  margin: 0 !important;
+}
+
+/* Doorway cards: use four columns only when they can breathe. */
+.hw-doorway-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.4vw, 2rem);
+}
+
+.hw-doorway-card {
+  min-height: clamp(20rem, 26vw, 24rem);
+  padding: clamp(2rem, 2.6vw, 2.75rem);
+  overflow: hidden;
+}
+
+.hw-doorway-card h3 {
+  font-size: clamp(2.15rem, 3vw, 3.1rem) !important;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  max-width: 8.7ch;
+}
+
+.hw-doorway-card h3 a {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.hw-doorway-card p {
+  max-width: 15rem;
+}
+
+@media (max-width: 1280px) and (min-width: 783px) {
+  .hw-doorway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hw-doorway-card {
+    min-height: 18rem;
+  }
+
+  .hw-doorway-card h3 {
+    max-width: none;
+    font-size: clamp(2.35rem, 4vw, 3.4rem) !important;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 783px) {
+  .hw-home-hero {
+    background-image:
+      linear-gradient(90deg,
+        rgba(10,12,11,0.10) 0%,
+        rgba(10,12,11,0.20) 38%,
+        rgba(10,12,11,0.58) 64%,
+        rgba(10,12,11,0.88) 100%),
+      url('../images/homepage-hero-clean.png');
+  }
+
+  .hw-home-hero__content {
+    grid-template-columns: minmax(0, 42vw) minmax(19rem, 36rem);
+  }
+
+  .hw-home-hero h1 {
+    font-size: clamp(3rem, 6vw, 4.9rem) !important;
+  }
+
+  .hw-path-card h3 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem) !important;
+  }
+
+  .hw-becoming-steps {
+    grid-template-columns: 1fr;
+    max-width: 44rem;
+  }
+
+  .hw-becoming-arrow {
+    transform: rotate(90deg);
+    min-height: 2rem;
+  }
+
+  .hw-becoming-step {
+    min-height: 15rem;
+  }
+
+  .hw-becoming-step h3 {
+    max-width: none;
+    font-size: clamp(2.25rem, 5vw, 3.4rem) !important;
+  }
+}
+
+@media (max-width: 782px) {
+  .hw-home-hero {
+    min-height: 76svh;
+    background-image:
+      linear-gradient(180deg,
+        rgba(10,12,11,0.05) 0%,
+        rgba(10,12,11,0.22) 40%,
+        rgba(10,12,11,0.78) 76%,
+        rgba(10,12,11,0.95) 100%),
+      url('../images/homepage-hero-clean.png');
+    background-position: 31% center;
+  }
+
+  .hw-home-hero__content {
+    display: flex;
+    justify-content: end;
+    padding: 3rem var(--hw-mobile-gutter);
+  }
+
+  .hw-home-hero__content > * {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hw-home-hero h1 {
+    font-size: clamp(2.75rem, 12vw, 4.25rem) !important;
+    max-width: 11ch !important;
+  }
+
+  .hw-home-orientation.alignwide,
+  .hw-home-becoming.alignwide,
+  .hw-home-doorways.alignwide,
+  .hw-matrix-invitation.alignwide {
+    width: min(calc(100vw - 2rem), 1280px) !important;
+  }
+
+  .hw-orientation-paths.wp-block-columns,
+  .hw-doorway-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-path-card h3,
+  .hw-becoming-step h3,
+  .hw-doorway-card h3 {
+    max-width: none;
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+  }
+}
+
+
+/* v0.1.7 - Owner QA pass after live screenshots.
+   Goal: widen the actual block frames as well as the cards, prevent title wrapping/cropping,
+   and keep every homepage discovery card readable at common desktop widths. */
+
+:root {
+  --hw-page-gutter: clamp(1.5rem, 4vw, 4rem);
+  --hw-home-max: 1500px;
+}
+
+/* Make the inner pattern grids truly wide inside constrained block groups. */
+.wp-site-blocks .hw-home-orientation.alignwide,
+.wp-site-blocks .hw-home-becoming.alignwide,
+.wp-site-blocks .hw-home-doorways.alignwide,
+.wp-site-blocks .hw-matrix-invitation.alignwide,
+.wp-site-blocks .hw-orientation-paths.alignwide,
+.wp-site-blocks .hw-becoming-steps.alignwide,
+.wp-site-blocks .hw-doorway-grid.alignwide,
+.wp-site-blocks .hw-matrix-card-grid.alignwide {
+  width: min(calc(100vw - (2 * var(--hw-page-gutter))), var(--hw-home-max)) !important;
+  max-width: min(calc(100vw - (2 * var(--hw-page-gutter))), var(--hw-home-max)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 1) Hero: create enough horizontal room for each approved phrase. */
+.hw-home-hero {
+  min-height: clamp(38rem, 83vh, 60rem);
+  background-image:
+    linear-gradient(90deg,
+      rgba(10,12,11,0.02) 0%,
+      rgba(10,12,11,0.05) 30%,
+      rgba(10,12,11,0.32) 52%,
+      rgba(10,12,11,0.72) 100%),
+    radial-gradient(ellipse at 73% 47%, rgba(0,0,0,0.64) 0%, rgba(0,0,0,0.36) 42%, transparent 68%),
+    url('../images/homepage-hero-clean.png');
+  background-position: center center;
+}
+
+.hw-home-hero__content {
+  grid-template-columns: minmax(0, 46vw) minmax(42rem, 58rem);
+  padding-left: var(--hw-page-gutter);
+  padding-right: var(--hw-page-gutter);
+}
+
+.hw-home-hero__content > * {
+  width: min(100%, 58rem) !important;
+  max-width: 58rem !important;
+}
+
+.hw-home-hero h1 {
+  max-width: none !important;
+  width: max-content !important;
+  white-space: nowrap;
+  font-size: clamp(3.25rem, 4.65vw, 5.65rem) !important;
+  line-height: .98;
+  letter-spacing: -0.045em;
+}
+
+.hw-home-hero .hw-eyebrow {
+  margin-bottom: clamp(.8rem, 1.6vw, 1.25rem);
+  background: rgba(9, 11, 10, .56);
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+}
+
+/* 2) Orientation cards: wider frame, equal height, controlled display type. */
+.hw-orientation-paths.wp-block-columns.alignwide {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4.2vw, 4.75rem);
+  align-items: stretch;
+}
+
+.hw-orientation-paths.wp-block-columns.alignwide > .wp-block-column {
+  min-width: 0;
+  margin: 0 !important;
+}
+
+.hw-path-card {
+  min-height: clamp(20rem, 25vw, 24rem);
+  padding: clamp(2rem, 3.5vw, 3.75rem);
+  justify-content: center;
+  gap: clamp(1.75rem, 3vw, 3rem);
+  overflow: visible;
+}
+
+.hw-path-card h3 {
+  max-width: none !important;
+  font-size: clamp(2.45rem, 3.25vw, 3.65rem) !important;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* 3) Becoming cards: align on the same row and preserve equal card geometry. */
+.hw-becoming-steps.alignwide {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) clamp(1.5rem, 2.2vw, 2.4rem) minmax(18rem, 1fr) clamp(1.5rem, 2.2vw, 2.4rem) minmax(18rem, 1fr);
+  gap: clamp(1.25rem, 2.4vw, 2.5rem);
+  align-items: stretch;
+}
+
+.hw-becoming-step {
+  width: 100%;
+  min-height: clamp(22rem, 32vw, 30rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.hw-becoming-step h3 {
+  max-width: none !important;
+  font-size: clamp(2.1rem, 2.55vw, 3.05rem) !important;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.hw-becoming-arrow {
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* 4) Four ways: widen the frame and reduce headline size just enough to fit. */
+.hw-doorway-grid.alignwide {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 2.6vw, 2.5rem);
+}
+
+.hw-doorway-card {
+  min-height: clamp(20rem, 25vw, 24rem);
+  padding: clamp(2rem, 2.7vw, 3rem);
+  overflow: visible;
+}
+
+.hw-doorway-card h3 {
+  max-width: none !important;
+  font-size: clamp(2rem, 2.45vw, 2.85rem) !important;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.hw-doorway-card h3 a {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.hw-doorway-card p {
+  max-width: none;
+}
+
+/* 5) Larger map: force the three matrix cards into one row on desktop. */
+.hw-matrix-invitation.alignwide {
+  width: min(calc(100vw - (2 * var(--hw-page-gutter))), 1320px) !important;
+  max-width: min(calc(100vw - (2 * var(--hw-page-gutter))), 1320px) !important;
+}
+
+.hw-matrix-card-grid.alignwide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 2.5vw, 2.25rem);
+  align-items: stretch;
+}
+
+.hw-matrix-card-grid .hw-card {
+  min-height: 100%;
+  padding: clamp(1.75rem, 2.5vw, 2.5rem);
+}
+
+.hw-matrix-card-grid .hw-card h3 {
+  font-size: clamp(1.65rem, 2vw, 2.35rem) !important;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+@media (max-width: 1380px) and (min-width: 783px) {
+  .hw-home-hero__content {
+    grid-template-columns: minmax(0, 43vw) minmax(38rem, 53rem);
+  }
+
+  .hw-home-hero h1 {
+    font-size: clamp(3rem, 4.4vw, 5rem) !important;
+  }
+
+  .hw-path-card h3 {
+    font-size: clamp(2.2rem, 3vw, 3.2rem) !important;
+  }
+
+  .hw-doorway-card h3 {
+    font-size: clamp(1.85rem, 2.25vw, 2.45rem) !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 783px) {
+  .hw-home-hero__content {
+    grid-template-columns: minmax(0, 38vw) minmax(33rem, 1fr);
+  }
+
+  .hw-home-hero h1 {
+    font-size: clamp(2.8rem, 4.8vw, 4.3rem) !important;
+  }
+
+  .hw-becoming-steps.alignwide,
+  .hw-matrix-card-grid.alignwide {
+    grid-template-columns: 1fr;
+    max-width: 46rem !important;
+  }
+
+  .hw-becoming-arrow {
+    transform: rotate(90deg);
+    min-height: 2rem;
+  }
+
+  .hw-becoming-step {
+    min-height: 15rem;
+  }
+
+  .hw-doorway-grid.alignwide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 62rem !important;
+  }
+
+  .hw-doorway-card h3 {
+    font-size: clamp(2.25rem, 4vw, 3.3rem) !important;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 783px) {
+  .hw-orientation-paths.wp-block-columns.alignwide {
+    grid-template-columns: 1fr;
+    max-width: 46rem !important;
+  }
+
+  .hw-path-card {
+    min-height: 16rem;
+  }
+}
+
+@media (max-width: 782px) {
+  .wp-site-blocks .hw-home-orientation.alignwide,
+  .wp-site-blocks .hw-home-becoming.alignwide,
+  .wp-site-blocks .hw-home-doorways.alignwide,
+  .wp-site-blocks .hw-matrix-invitation.alignwide,
+  .wp-site-blocks .hw-orientation-paths.alignwide,
+  .wp-site-blocks .hw-becoming-steps.alignwide,
+  .wp-site-blocks .hw-doorway-grid.alignwide,
+  .wp-site-blocks .hw-matrix-card-grid.alignwide {
+    width: min(calc(100vw - 2rem), var(--hw-home-max)) !important;
+    max-width: min(calc(100vw - 2rem), var(--hw-home-max)) !important;
+  }
+
+  .hw-home-hero h1 {
+    white-space: normal;
+    width: 100% !important;
+    font-size: clamp(2.6rem, 11vw, 4rem) !important;
+  }
+
+  .hw-orientation-paths.wp-block-columns.alignwide,
+  .hw-becoming-steps.alignwide,
+  .hw-doorway-grid.alignwide,
+  .hw-matrix-card-grid.alignwide {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-path-card h3,
+  .hw-becoming-step h3,
+  .hw-doorway-card h3 {
+    font-size: clamp(2rem, 8.5vw, 3rem) !important;
+  }
+}

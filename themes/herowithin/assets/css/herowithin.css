@@ -1,0 +1,494 @@
+/*
+ * HeroWithin — frontend stylesheet (clean rebuild, v2.0.0)
+ * ------------------------------------------------------------------
+ * A ground-up rewrite of the v0.1.7 cascade. Principles:
+ *   - Mobile-first. Base rules are the phone layout; min-width queries add columns.
+ *   - No !important stacks. Wide sections use a shared frame utility, not overrides.
+ *   - Single source of truth for tokens: WordPress preset custom properties emitted
+ *     from theme.json (--wp--preset--color--*, --font-size--*, --spacing--*).
+ *   - Every interactive element keeps a visible keyboard focus state.
+ *   - No horizontal overflow at any width.
+ *
+ * Section map:
+ *   0. Local tokens + primitives      5. Home: Who Are You Becoming (Identity→Formation→Maturity)
+ *   1. Site header / nav              6. Home: Four Ways to Keep Moving (doorways)
+ *   2. Home: hero (split layout)      7. Home: Matrix invitation (three views)
+ *   3. Home: Where Are You Today      8. Home: closing invitation
+ *   4. Home: Trail Markers / seeker   9. Cards, buttons, scripture, footer, a11y, utilities
+ */
+
+/* ============================================================
+   0. LOCAL TOKENS + PRIMITIVES
+   ============================================================ */
+:root {
+	/* Homepage frame: keeps discovery cards generously wide without fighting
+	   WordPress's constrained content width via !important. */
+	--hw-page-gutter: clamp(1.25rem, 4vw, 4rem);
+	--hw-home-max: 1500px;
+	--hw-radius: 12px;
+	--hw-radius-sm: 8px;
+	/* Translucent card surface per canon: Forge Black at 80% opacity. */
+	--hw-surface-translucent: rgba(23, 19, 16, 0.80);
+	--hw-hairline: rgba(247, 242, 231, 0.14);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	overflow-x: hidden; /* belt-and-braces against accidental horizontal scroll */
+	background-color: var(--wp--preset--color--warm-white);
+	color: var(--wp--preset--color--charcoal);
+	font-family: var(--wp--preset--font-family--body);
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Wide homepage frame utility. Applied to full-bleed sections' inner wrapper. */
+.hw-frame {
+	width: min(calc(100vw - (2 * var(--hw-page-gutter))), var(--hw-home-max));
+	margin-inline: auto;
+}
+
+/* Eyebrow / label treatment (Inter Medium, tracked, uppercase). */
+.hw-eyebrow,
+.hw-label {
+	font-family: var(--wp--preset--font-family--body);
+	font-size: var(--wp--preset--font-size--label);
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--bronze);
+	margin: 0 0 var(--wp--preset--spacing--20);
+}
+
+/* Section headings use Outfit (section role from the canon type ramp). */
+.hw-section__title {
+	font-family: var(--wp--preset--font-family--section);
+	font-weight: 500;
+	line-height: 1.28;
+}
+
+/* ============================================================
+   1. SITE HEADER / NAV  (desktop translation of the mobile NAV Bottom tokens)
+   ============================================================ */
+.hw-site-header {
+	background-color: var(--wp--preset--color--forge-black);
+	color: var(--wp--preset--color--warm-white);
+	border-bottom: 1px solid var(--hw-hairline);
+	position: sticky;
+	top: 0;
+	z-index: 50;
+}
+
+.hw-site-header a {
+	color: var(--wp--preset--color--warm-white);
+	text-decoration: none;
+}
+
+.hw-wordmark a {
+	font-family: var(--wp--preset--font-family--body);
+	font-weight: 600;
+	font-size: 1.25rem;
+	letter-spacing: 0.01em;
+	color: var(--wp--preset--color--warm-white);
+}
+
+/* Active / hover nav item = Forged Gold, echoing the app's active-tab token. */
+.hw-primary-nav a:hover,
+.hw-primary-nav a:focus-visible,
+.hw-primary-nav .current-menu-item > a,
+.hw-primary-nav [aria-current] {
+	color: var(--wp--preset--color--forged-gold);
+}
+
+/* ============================================================
+   2. HOME — CINEMATIC HERO (split: image/men left, text right)
+   ============================================================ */
+.hw-home-hero {
+	position: relative;
+	background-color: var(--wp--preset--color--forge-black);
+	color: var(--wp--preset--color--warm-white);
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+}
+
+/* Reading scrim so white text stays readable over the scene, without hiding the men.
+   On mobile the scrim covers the whole hero; on desktop it weights to the right. */
+.hw-home-hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(23,19,16,0.30) 0%, rgba(23,19,16,0.70) 100%);
+	z-index: 0;
+}
+
+.hw-home-hero__content {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--40);
+	padding-block: clamp(3.5rem, 12vh, 8rem);
+	align-content: end;
+	min-height: min(82vh, 720px);
+}
+
+.hw-home-hero .hw-eyebrow {
+	color: var(--wp--preset--color--forged-gold);
+}
+
+.hw-home-hero h1 {
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 600;
+	font-size: var(--wp--preset--font-size--hero);
+	line-height: 1.06;
+	color: var(--wp--preset--color--warm-white);
+	text-wrap: balance;
+	margin: 0;
+}
+
+.hw-home-hero p {
+	font-size: var(--wp--preset--font-size--section);
+	color: var(--wp--preset--color--cloud);
+	max-width: 34ch;
+}
+
+@media (min-width: 60em) {
+	.hw-home-hero::after {
+		background: linear-gradient(90deg, rgba(23,19,16,0) 0%, rgba(23,19,16,0) 34%, rgba(23,19,16,0.55) 62%, rgba(23,19,16,0.82) 100%);
+	}
+	.hw-home-hero__content {
+		/* Left column yields to the scene; right column holds the reading zone. */
+		grid-template-columns: minmax(0, 1fr) minmax(30rem, 40rem);
+		align-content: center;
+	}
+	.hw-home-hero__text {
+		grid-column: 2;
+	}
+	/* Phrasing stays intentional (Building Men. / Building Brothers. / Building Legacy.)
+	   through fluid sizing + balance, not white-space: nowrap. */
+	.hw-home-hero h1 {
+		font-size: clamp(2.75rem, 4.4vw, 4.25rem);
+	}
+}
+
+/* ============================================================
+   3. HOME — WHERE ARE YOU TODAY  (two balanced, equal-height cards)
+   ============================================================ */
+.hw-orientation {
+	padding-block: var(--wp--preset--spacing--70);
+	background-color: var(--wp--preset--color--warm-white);
+}
+
+.hw-orientation-paths {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--40);
+	align-items: stretch;
+}
+
+@media (min-width: 48em) {
+	.hw-orientation-paths {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.hw-path-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+	min-height: clamp(18rem, 24vw, 22rem);
+	padding: var(--wp--preset--spacing--50);
+	background-color: var(--wp--preset--color--cloud);
+	border: 1px solid var(--wp--preset--color--mist);
+	border-radius: var(--hw-radius);
+}
+
+.hw-path-card__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--10);
+}
+
+.hw-path-card__list li {
+	font-family: var(--wp--preset--font-family--section);
+	font-size: var(--wp--preset--font-size--body);
+	padding: 0.35rem 0.85rem;
+	border-radius: 999px;
+	background-color: var(--wp--preset--color--warm-white);
+	border: 1px solid var(--wp--preset--color--mist);
+}
+
+/* ============================================================
+   4. HOME — TRAIL MARKERS / SEEKER PATHWAY ("Not sure what you believe?")
+   ============================================================ */
+.hw-seeker {
+	padding-block: var(--wp--preset--spacing--70);
+	background: var(--wp--preset--gradient--dawn-forge);
+	color: var(--wp--preset--color--warm-white);
+}
+
+.hw-seeker h2 {
+	color: var(--wp--preset--color--warm-white);
+}
+
+.hw-seeker p {
+	color: var(--wp--preset--color--cloud);
+	max-width: 60ch;
+}
+
+/* ============================================================
+   5. HOME — WHO ARE YOU BECOMING  (Identity → Formation → Maturity)
+   ============================================================ */
+.hw-becoming {
+	padding-block: var(--wp--preset--spacing--70);
+}
+
+.hw-becoming-steps {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--40);
+	align-items: stretch;
+}
+
+.hw-becoming-steps__arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--wp--preset--color--bronze);
+	font-size: 1.75rem;
+	line-height: 1;
+}
+
+/* Mobile: arrows point down between stacked cards. */
+.hw-becoming-steps__arrow::before {
+	content: "\2193"; /* ↓ */
+}
+
+@media (min-width: 60em) {
+	.hw-becoming-steps {
+		grid-template-columns: minmax(16rem, 1fr) auto minmax(16rem, 1fr) auto minmax(16rem, 1fr);
+	}
+	.hw-becoming-steps__arrow::before {
+		content: "\2192"; /* → */
+	}
+}
+
+/* ============================================================
+   6. HOME — FOUR WAYS TO KEEP MOVING  (Truth · Stories · Practice · Brotherhood)
+   ============================================================ */
+.hw-doorways {
+	padding-block: var(--wp--preset--spacing--70);
+	background-color: var(--wp--preset--color--charcoal);
+	color: var(--wp--preset--color--warm-white);
+}
+
+.hw-doorways h2 {
+	color: var(--wp--preset--color--warm-white);
+}
+
+.hw-doorway-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--40);
+}
+
+/* two-up at medium, four-across only when there is genuinely enough width. */
+@media (min-width: 40em) {
+	.hw-doorway-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 64em) {
+	.hw-doorway-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+.hw-doorway-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+	padding: var(--wp--preset--spacing--40);
+	background-color: var(--hw-surface-translucent);
+	border: 1px solid var(--hw-hairline);
+	border-radius: var(--hw-radius);
+	height: 100%;
+}
+
+.hw-doorway-card h3 {
+	color: var(--wp--preset--color--forged-gold);
+	margin: 0;
+}
+
+.hw-doorway-card__examples {
+	margin-top: auto;
+	font-size: var(--wp--preset--font-size--caption);
+	color: var(--wp--preset--color--stone);
+}
+
+/* ============================================================
+   7. HOME — MATRIX INVITATION  (three views, one desktop row)
+   ============================================================ */
+.hw-matrix-invitation {
+	padding-block: var(--wp--preset--spacing--70);
+}
+
+.hw-matrix-card-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--wp--preset--spacing--40);
+	align-items: stretch;
+}
+
+/* Owner preference: all three larger-map cards in a single desktop row. */
+@media (min-width: 60em) {
+	.hw-matrix-card-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+/* ============================================================
+   8. HOME — CLOSING BROTHERHOOD INVITATION
+   ============================================================ */
+.hw-closing {
+	padding-block: var(--wp--preset--spacing--80);
+	background: var(--wp--preset--gradient--dawn-forge);
+	color: var(--wp--preset--color--warm-white);
+	text-align: center;
+}
+
+.hw-closing h2 {
+	color: var(--wp--preset--color--warm-white);
+}
+
+.hw-closing p {
+	color: var(--wp--preset--color--cloud);
+	max-width: 52ch;
+	margin-inline: auto;
+}
+
+/* ============================================================
+   9. SHARED — CARDS, BUTTONS, SCRIPTURE, FOOTER, A11Y, UTILITIES
+   ============================================================ */
+
+/* CARD Panel translation from the Figma component. */
+.hw-card {
+	padding: var(--wp--preset--spacing--50);
+	background-color: var(--wp--preset--color--warm-white);
+	border: 1px solid var(--wp--preset--color--mist);
+	border-radius: var(--hw-radius);
+	box-shadow: var(--wp--preset--shadow--sm);
+}
+
+/* Secondary button (outline) — BtnSecondary translation. */
+.hw-btn-secondary .wp-block-button__link,
+.wp-block-button.is-style-hw-secondary .wp-block-button__link {
+	background-color: transparent;
+	color: var(--wp--preset--color--forged-gold);
+	border: 1px solid var(--wp--preset--color--forged-gold);
+}
+
+.hw-btn-secondary .wp-block-button__link:hover,
+.wp-block-button.is-style-hw-secondary .wp-block-button__link:hover {
+	background-color: var(--wp--preset--color--forged-gold);
+	color: var(--wp--preset--color--forge-black);
+}
+
+/* Scripture treatment — Outfit, generous line-height, subtle tracking (canon). */
+.hw-scripture,
+.wp-block-quote.is-style-hw-scripture {
+	font-family: var(--wp--preset--font-family--section);
+	font-size: var(--wp--preset--font-size--scripture);
+	line-height: 1.58;
+	letter-spacing: 0.01em;
+	color: var(--wp--preset--color--warm-iron);
+}
+
+/* Footer */
+.hw-site-footer {
+	background-color: var(--wp--preset--color--forge-black);
+	color: var(--wp--preset--color--stone);
+	padding-block: var(--wp--preset--spacing--70);
+	border-top: 1px solid var(--hw-hairline);
+}
+
+.hw-site-footer a {
+	color: var(--wp--preset--color--cloud);
+	text-decoration: none;
+}
+
+.hw-site-footer a:hover,
+.hw-site-footer a:focus-visible {
+	color: var(--wp--preset--color--forged-gold);
+	text-decoration: underline;
+}
+
+.hw-site-footer h2,
+.hw-site-footer h3 {
+	font-family: var(--wp--preset--font-family--section);
+	font-size: var(--wp--preset--font-size--caption);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--soft-stone);
+}
+
+/* Accessibility — strong, visible keyboard focus everywhere. */
+:where(a, button, input, select, textarea, .wp-block-button__link, summary):focus-visible {
+	outline: 3px solid var(--wp--preset--color--forged-gold);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+/* Skip link */
+.skip-link:not(:focus) {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+.skip-link:focus {
+	position: fixed;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 100;
+	padding: 0.75rem 1rem;
+	background: var(--wp--preset--color--forged-gold);
+	color: var(--wp--preset--color--forge-black);
+	border-radius: var(--hw-radius-sm);
+	font-weight: 600;
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Utilities */
+.hw-text-center { text-align: center; }
+.hw-measure { max-width: 42rem; margin-inline: auto; }
