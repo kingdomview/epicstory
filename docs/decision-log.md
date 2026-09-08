@@ -3,6 +3,35 @@
 Newest first. Records reversible-but-notable choices made during the clean rebuild, so a
 later session (or the owner) can see the reasoning without re-deriving it.
 
+## 2026-09-08 — Staging: theme deployed, activated, homepage reattached
+
+Executed on Pressable Staging (`herowithin.mystagingwebsite.com`) via the WordPress MCP.
+
+- **Pressable Git deploy** connected to `kingdomview/epicstory`, branch `main`, scoped:
+  **Deploy From `themes/epicstory` → Deployment Path `wp-content/themes/epicstory`**. Keep it
+  scoped to the theme so a deploy can never touch plugins/uploads/other themes.
+- **Incident + recovery (resolved):** an initial mis-scoped config (both fields at
+  `wp-content`) mirror-deleted WP Grid Builder's `includes/`, causing a site-wide PHP fatal
+  (which also 502'd the MCP endpoint). Recovered via Pressable Backups & Restores; config
+  rescoped to the theme.
+- **Theme deployed + activated:** `stylesheet=epicstory`; all 16 epicstory patterns register;
+  144 Coordinates and all plugins intact.
+- **Homepage reattached:** page 356 content replaced with the `epicstory/homepage` pattern
+  (editable blocks). Pre-existing hand-coded HTML preserved at
+  `docs/staging-snapshots/page-356-home-preexisting.html`.
+- **Nav pages created:** Explore 470, Become 471, Truth 472, Stories 473, Practice 474,
+  Brotherhood 475, About 476. Reused existing: Not Sure What You Believe 366, Formation
+  Matrix 162, Privacy Policy 3, Explore Formation 315.
+
+Open items for the owner (surfaced, not resolved):
+- `/explore/` (470, new six-door hub) overlaps the existing `/explore-formation/` (315).
+  Decide whether the "Explore" door is its own hub or should point at 315.
+- Page 162 title is still "The HeroWithin Formation Matrix"; the `[herowithin_formation_matrix]`
+  shortcode is plugin-owned and stays. Rebranding the page/plugin is a later live-site task.
+- Homepage hero has no scene image yet (solid Forge Black + scrim); old image URL is in the snapshot.
+- **Acceptance test still to run (owner):** open Home → edit → save → reopen → see change;
+  same for an ordinary page and a Trail Marker. Also validates the editor-save crash under the new theme.
+
 ## 2026-09-08 — Epic Story content model: scope and build approach confirmed
 
 Owner decision, made in a planning session with Claude (chat). See
