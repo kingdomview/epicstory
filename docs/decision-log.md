@@ -19,7 +19,7 @@ Deliberately NOT changed:
 - **The live Formation Matrix plugin is still named "HeroWithin Formation Matrix Core"** on the site. Renaming that plugin (and its handle) is a separate live-site task, not done here.
 - **`reference/herowithin-v0.1.7-draft/`** and the two imported source docs (`build-brief.md`, `chatgpt-handoff.md`) keep their original wording as historical records; the source docs carry a naming-note banner instead.
 
-Pending owner action: rename the GitHub repo `herowithin-web` → `epicstory` in repo Settings (the Claude integration can't rename repos). GitHub auto-redirects the old URL.
+Owner renamed the GitHub repo `herowithin-web` → `epicstory` (done 2026-09-08); GitHub auto-redirects the old URL, so existing clones keep working. (This build session's git proxy still authorizes the repo under its original name, so pushes here go through the redirecting old URL; a fresh clone of `kingdomview/epicstory` works normally.)
 
 ## 2026-08-25 — Initial clean-rebuild session
 
