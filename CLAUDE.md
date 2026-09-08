@@ -71,7 +71,13 @@ Two confirmed problems in v0.1.7 (see `docs/chatgpt-handoff.md`, `docs/editor-cr
    documented lead (full frontend CSS enqueued into Gutenberg) is **avoided** here, but the
    crash must still be reproduced/diagnosed on Staging before calling the rebuild done.
 
-## Relationship to the mobile app
+## Relationship to the mobile app — HARD RULE
+
+**The mobile app stays "HeroWithin" forever. Never rename it.** The Epic Story of God
+(this website) and HeroWithin (the app, repo `kingdomview/herowithin-app`) are **sister
+sites** — related products with distinct brand identities. This website's rebrand does NOT
+propagate to the app. Do not change the app's name, wordmark, repo, or canon under any
+circumstances. (Owner directive, 2026-09-08.)
 
 The site will ship inside a WebView shell for an iPhone App Store MVP. Keep the content
 model (CPTs, taxonomies, field names) clean and predictable so a later migration to a shared
