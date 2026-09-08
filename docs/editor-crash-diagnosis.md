@@ -34,7 +34,7 @@ not assumed.
    - PHP error log (Pressable dashboard / logs)
    - Pressable platform logs
 4. Bisect what the crash follows:
-   - Theme: switch to the new `herowithin` v2.0.0 — does saving work?
+   - Theme: switch to the new `epicstory` v2.0.0 — does saving work?
    - Plugins: with a backup, isolate on Staging (ACF, AI Engine, WP Grid Builder,
      PublishPress suite, Jetpack, MCP Adapter). AI Engine + MCP Adapter are prime suspects
      for editor/REST interference.

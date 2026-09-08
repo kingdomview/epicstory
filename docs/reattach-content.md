@@ -10,8 +10,8 @@ WordPress/Staging access.
 
 ## 1. Deploy the theme to Staging
 
-Deploy `themes/herowithin/` to `wp-content/themes/herowithin/` (Git export or SFTP). Twenty
-Twenty-Five must remain installed (parent). Activate the new `herowithin` theme on Staging.
+Deploy `themes/epicstory/` to `wp-content/themes/epicstory/` (Git export or SFTP). Twenty
+Twenty-Five must remain installed (parent). Activate the new `epicstory` theme on Staging.
 
 ## 2. Fix the homepage (the editability change)
 
@@ -21,7 +21,7 @@ until content is attached. One time:
 1. Edit the **Home** page (ID 356) in the normal page editor.
 2. If old/stale blocks are present, review them against the approved design first (the
    handoff warns page 356 may hold stale `post_content` the old front-page ignored).
-3. Insert the **"HeroWithin — Full Homepage"** pattern (inserter → Patterns → HeroWithin —
+3. Insert the **"The Epic Story of God — Full Homepage"** pattern (inserter → Patterns → The Epic Story of God —
    Homepage). It lays down all seven sections as **editable blocks**.
    - Or insert the seven section patterns individually: Cinematic Hero, Where Are You Today,
      Trail Markers / Seeker, Who Are You Becoming, Four Ways to Keep Moving, Matrix

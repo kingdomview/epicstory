@@ -1,3 +1,5 @@
+> **Naming note (2026-09-08):** This document predates the project rename and refers throughout to **"HeroWithin"** and **discoverherowithin.com**. The project is now **The Epic Story of God** (repo `kingdomview/epicstory`, site **theepicstoryofgod.com**), and the WordPress theme slug is `epicstory`. This file is kept verbatim as a historical source record — read the names accordingly. See `decision-log.md` for the rename.
+
 HeroWithin WordPress Theme Rebuild — Complete Technical & Project Handoff for Claude / Claude Code
 Handoff date: August 25, 2026
 Current site: https://discoverherowithin.com/

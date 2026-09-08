@@ -1,7 +1,7 @@
-# CLAUDE.md — HeroWithin Website (WordPress)
+# CLAUDE.md — The Epic Story of God Website (WordPress)
 
-Navigation and enforcement layer for Claude Code sessions on the HeroWithin **website**.
-This is the public formation site at discoverherowithin.com (Pressable, Twenty Twenty-Five
+Navigation and enforcement layer for Claude Code sessions on the Epic Story of God **website**.
+This is the public formation site at theepicstoryofgod.com (Pressable, Twenty Twenty-Five
 block child theme). It is a **separate repository** from the mobile app
 (`kingdomview/herowithin-app`); that repo's AI/backend Control Plan governance does **not**
 apply here. This site has no AI-provider calls in the theme.
@@ -16,10 +16,10 @@ architecture the visitor never has to learn first.
 ## Precedence & authority
 
 - **Figma is the design source of truth** (shared with the mobile app):
-  `29H2fNkgPiP6Sn9pvREEvu`. The palette and type ramp in `themes/herowithin/theme.json`
+  `29H2fNkgPiP6Sn9pvREEvu`. The palette and type ramp in `themes/epicstory/theme.json`
   are transcribed from it and must stay in sync.
 - **WordPress is not canon.** Content authority is approved Google Docs, Airtable, and
-  HeroWithin governance records. If a template surfaces a content discrepancy, surface it —
+  The Epic Story of God governance records. If a template surfaces a content discrepancy, surface it —
   do not silently resolve it.
 - **Do not invent theology or content.** Flag gaps; don't fill them. A Matrix coordinate or
   intersection does not authorize inventing content.
@@ -51,7 +51,7 @@ hard-to-reverse-infrastructure, publication/governance, or security-sensitive de
 
 ## Design system
 
-Transcribed into `themes/herowithin/theme.json` from the Figma canon. Colors: Charcoal
+Transcribed into `themes/epicstory/theme.json` from the Figma canon. Colors: Charcoal
 `#262220`, Forge Black `#171310`, Forged Gold `#EBAD3F`, Warm White `#F7F2E7`, and the full
 neutral/emotional/semantic palette. Type: Playfair Display (display/headings), Outfit
 (section/scripture), Inter (body/UI). Spacing, elevation, and iconography were undefined in

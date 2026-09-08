@@ -1,0 +1,37 @@
+/*
+ * The Epic Story of God — block editor stylesheet (MINIMAL BY DESIGN)
+ *
+ * This file is loaded into Gutenberg via add_editor_style(). Keep it small and
+ * typographic only. Do NOT paste the frontend layout CSS in here — loading the full
+ * frontend stylesheet into the editor is a documented suspect for the v0.1.7 save/crash
+ * problem, and the point of the rebuild is to keep the editor surface light.
+ *
+ * theme.json already supplies palette, font-family, font-size and spacing tokens to the
+ * editor. This file only nudges in-editor readability toward the frontend look.
+ */
+
+.editor-styles-wrapper {
+	font-family: var(--wp--preset--font-family--body, "Inter", system-ui, sans-serif);
+	font-size: var(--wp--preset--font-size--body, 1.0625rem);
+	line-height: 1.5;
+	color: var(--wp--preset--color--charcoal, #262220);
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper .wp-block-heading {
+	font-family: var(--wp--preset--font-family--display, "Playfair Display", Georgia, serif);
+	font-weight: 600;
+	line-height: 1.2;
+	color: var(--wp--preset--color--forge-black, #171310);
+}
+
+.editor-styles-wrapper h3 {
+	font-family: var(--wp--preset--font-family--section, "Outfit", system-ui, sans-serif);
+	font-weight: 500;
+}
+
+/* Give editors a readable measure for body copy without importing frontend layout. */
+.editor-styles-wrapper p {
+	max-width: 42rem;
+}

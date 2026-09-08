@@ -1,6 +1,6 @@
-# HeroWithin — Website (WordPress)
+# The Epic Story of God — Website (WordPress)
 
-The public HeroWithin formation website at **discoverherowithin.com** — a Christ-centered
+The public formation website at **theepicstoryofgod.com** — a Christ-centered
 men's formation site by KingdomView Media, Inc. Hosted on **Pressable**, built as a block
 child theme on **Twenty Twenty-Five**.
 
@@ -10,14 +10,14 @@ design canon (Figma) and will eventually share a content model, but they are dif
 codebases with different toolchains.
 
 > **WordPress is not canon.** Content authority lives in approved Google Docs, Airtable, and
-> HeroWithin governance records. WordPress is the presentation/discovery/publishing layer.
+> The Epic Story of God governance records. WordPress is the presentation/discovery/publishing layer.
 > If a rebuilt template surfaces a content discrepancy, surface it — don't silently resolve it.
 
 ## Repository layout
 
 ```
-herowithin-web/
-  themes/herowithin/               The clean rebuild (v2.0.0) — the active theme
+epicstory/
+  themes/epicstory/               The clean rebuild (v2.0.0) — the active theme
   reference/herowithin-v0.1.7-draft/  ChatGPT's last theme, kept read-only for reference
   docs/
     build-brief.md                 Claude (chat) build brief
@@ -31,7 +31,7 @@ herowithin-web/
 
 The **Formation Matrix Core plugin** (owns the `hw_coordinate` CPT and the 144 Formation
 Coordinates) is a separate artifact. When its source is exported from the live site it
-should land under `plugins/herowithin-formation-matrix-core/` and be audited independently —
+should land under `plugins/epicstory-formation-matrix-core/` and be audited independently —
 its domain logic must never move into the theme.
 
 ## Current status

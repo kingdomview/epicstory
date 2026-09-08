@@ -1,3 +1,5 @@
+> **Naming note (2026-09-08):** This document predates the project rename and refers throughout to **"HeroWithin"** and **discoverherowithin.com**. The project is now **The Epic Story of God** (repo `kingdomview/epicstory`, site **theepicstoryofgod.com**), and the WordPress theme slug is `epicstory`. This file is kept verbatim as a historical source record — read the names accordingly. See `decision-log.md` for the rename.
+
 # HeroWithin WordPress Rebuild — Build Brief for Claude Code
 
 Prepared by Claude (chat) from the ChatGPT handoff document + owner Q&A + Figma design canon.
