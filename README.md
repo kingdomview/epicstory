@@ -22,6 +22,7 @@ epicstory/
   docs/
     build-brief.md                 Claude (chat) build brief
     chatgpt-handoff.md             Full ChatGPT technical handoff (reference)
+    epic-story-content-model-handoff.md  Content model + Phase 0 / Stage 1–5 sequence
     editor-crash-diagnosis.md      Plan to reproduce/diagnose the Gutenberg save crash
     reattach-content.md            One-time steps to attach content to the new templates
     session-discipline.md          Git + Pressable workflow for every session
