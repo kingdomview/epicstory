@@ -44,6 +44,30 @@ not assumed.
    - REST/API permissions (PublishPress Permissions/Capabilities can gate REST saves).
 5. Document the actual root cause here before building further assumptions on it.
 
+## Findings (2026-09-09) — on Staging, under the epicstory theme
+
+- **Editor save-crash: resolved.** Under the epicstory theme, pages, ordinary pages, and Trail
+  Markers open, edit, save, and reopen with the change persisted. The original hard crash is
+  gone — consistent with the v0.1.7 broad editor enqueue (full frontend CSS into Gutenberg)
+  having been a contributor, which the rebuild avoids.
+- **Residual "Saving…" spinner hang (separate issue).** The save/publish succeeds (content is
+  written), but the editor button stays on "Saving…" indefinitely. This is a post-save
+  lifecycle hang, not data loss, and not the theme.
+  - **Prime cause: PublishPress Revisions (`revisionary`).** On a *published* post it intercepts
+    the update into a revision, and the response Gutenberg receives doesn't resolve the save
+    state → the spinner never clears. It's an unneeded-for-MVP review-workflow plugin.
+  - **Isolation test in progress:** `revisionary` deactivated on Staging (via `active_plugins`)
+    2026-09-09, leaving PublishPress Permissions (`press-permit-core`) and Capabilities
+    (`capability-manager-enhanced`) active. Owner to retest a save in the editor.
+    - If the spinner is gone → root cause confirmed = revisionary; keep it deactivated for MVP.
+    - If it persists → deactivate `press-permit-core`, then `capability-manager-enhanced`, and
+      finally check the admin-ajax heartbeat / post-lock and the `wp/v2/.../autosaves` response.
+  - **Restore point** — original `active_plugins` before the test (to re-enable revisionary):
+    `mobilook, advanced-custom-fields/acf, ai-engine, ai, akismet,
+    capability-manager-enhanced/capsman-enhanced, file-manager-advanced,
+    herowithin-formation-matrix-core, mcp-adapter, press-permit-core,
+    pressable-onepress-login, revisionary/revisionary, wp-grid-builder`.
+
 ## Also audit (Site Editor DB overrides can silently supersede theme files)
 
 - `wp_template`, `wp_template_part` (DB copies overriding the theme's HTML files)
