@@ -6,6 +6,18 @@ block child theme). It is a **separate repository** from the mobile app
 (`kingdomview/herowithin-app`); that repo's AI/backend Control Plan governance does **not**
 apply here. This site has no AI-provider calls in the theme.
 
+## Canon governance repo — check before creating story, theology, or character content
+
+**Franchise canon (World Bible, HKFF governance volumes, and their decision trail) lives in
+[`kingdomview/herowithin-governance`](https://github.com/kingdomview/herowithin-governance)
+(private).** It holds `world-bible/` (SRC-060, the Forge/story-world specification),
+`volumes/` (the 6 HKFF governance volumes, being populated), and
+`decisions/open-questions.md` (a running discrepancy/conflict log). This supplements — it
+does not replace — the "WordPress is not canon" rule below: approved Google Docs, Airtable,
+and Epic Story of God governance records remain in scope too, but any theology, story-world,
+character, or formation-terminology content should be checked against the governance repo
+before it's written. If something conflicts, don't silently resolve it — flag it to Dave.
+
 ## What this project is
 
 A Christ-centered men's formation website by KingdomView Media, Inc. The visitor experience
@@ -18,9 +30,9 @@ architecture the visitor never has to learn first.
 - **Figma is the design source of truth** (shared with the mobile app):
   `29H2fNkgPiP6Sn9pvREEvu`. The palette and type ramp in `themes/epicstory/theme.json`
   are transcribed from it and must stay in sync.
-- **WordPress is not canon.** Content authority is approved Google Docs, Airtable, and
-  The Epic Story of God governance records. If a template surfaces a content discrepancy, surface it —
-  do not silently resolve it.
+- **WordPress is not canon.** Content authority is approved Google Docs, Airtable,
+  `kingdomview/herowithin-governance`, and The Epic Story of God governance records. If a
+  template surfaces a content discrepancy, surface it — do not silently resolve it.
 - **Do not invent theology or content.** Flag gaps; don't fill them. A Matrix coordinate or
   intersection does not authorize inventing content.
 
