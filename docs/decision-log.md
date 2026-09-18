@@ -3,6 +3,58 @@
 Newest first. Records reversible-but-notable choices made during the clean rebuild, so a
 later session (or the owner) can see the reasoning without re-deriving it.
 
+## 2026-09-18 — Cross-surface content model adopted (SRC-111)
+
+Owner decision, made layer by layer in a session with Claude. Full standard mirrored at
+`docs/cross-surface-content-model.md`; authoritative copy is
+`src-docs/SRC-111-cross-surface-content-model-and-visibility-standard.md` in
+`kingdomview/herowithin-governance`.
+
+The website and the app are now built against **one content chain**. What differs between
+them is what gets surfaced, not the production model behind it.
+
+What this means for this repo:
+
+- **The concept page is the centerpiece.** One page per biblical concept, tying many
+  scriptures together. It is the single public theological destination and the landing
+  point for Dig Deeper on both surfaces. There is no page per Scripture passage; verses
+  open as pop-ups wherever they appear.
+- **Dig Deeper is built here.** The button appears on every content surface and always
+  lands on a concept page. From there a man travels backward to Scripture and the Book 0
+  chapter, and forward to the Chronicles chapters, Quests and Teaching Articles that draw
+  on the concept. The route record (trigger text, target anchor, readiness, guardrail) is
+  behind the scenes; a route that is not Ready simply renders no button.
+- **Research is reviewer-only, never public.** Research Questions and Research Evidence
+  merge into one reviewer-only content type with a single Research View.
+- **WordPress becomes the authoritative working and publishing home for theology.**
+  Airtable keeps the Source Authority Register and the operational records the app
+  consumes. Each Theological Conclusion carries its live Theology Library record ID.
+- **Roles:** Reviewer (theologian) suggests edits and comments but cannot publish;
+  standard WordPress Administrator (Dave) accepts and publishes.
+- **New content types to add to the SRC-106 model** (SRC-111 §6): concept page, Dig Deeper
+  route, merged Research type, Teaching Article (plus a Journey page that gathers them),
+  Chronicles chapter, Formation Matrix entry, Three-Axis fields, relationship role field,
+  status mapping. Concept page and Dig Deeper route come first.
+- **Terminology, fixed:** what the app calls a **Quest**, the website calls a **Teaching
+  Article** — a self-contained study piece, not a description of the Quest. Trail Marker
+  keeps the same name on both surfaces.
+- **Two different sets of 144.** The plugin's `hw_coordinate` records are the **Formation
+  Matrix coordinates** (public-facing, reduced offline from a 1,728-coordinate production
+  scaffold). The **Chronicles chapters** are a separate 144. Never write "the 144" alone.
+- **Book 0:** Everyday-Man Edition is the default public read; Formation Theology Edition
+  is public behind a toggle on the chapter page, no login.
+- **Chronicles:** all published story prose is public; a paywall may come later. Axis X and
+  Axis Z are never shown to readers.
+- **No user state on the website at launch.** Teaching Articles are readable without an
+  account; group study features may come later.
+- **Delivery pattern:** long-form content lives in WordPress and its text is pulled into
+  the app. A more scalable approach will be designed when scale requires it.
+
+Not resolved by this entry: `docs/epic-story-content-model-handoff.md` still describes the
+pre-SRC-111 content model and needs a revision pass; SRC-070 and SRC-067 need in-place
+amendment in the governance repo (owner review required); the SRC-111 document number is
+provisional until checked against the Source Authority Register.
+
 ## 2026-09-08 — Staging: theme deployed, activated, homepage reattached
 
 Executed on Pressable Staging (`herowithin.mystagingwebsite.com`) via the WordPress MCP.
